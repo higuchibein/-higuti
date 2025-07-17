@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【完成版】自治体中心型・移動プラットフォーム事業インフォグラフィック</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Authoritative Blue (#2563EB), Growth Green (#16A34A), Creative Purple (#9333EA), Care Orange (#F97316), Neutral Gray -->
+    <!-- Application Structure Plan: An enhanced hub-and-spoke infographic. It begins with a strong problem statement, presents the core "Municipality-as-Hub" model, then dedicates visually distinct, detailed sections to each of the four business pillars. A new "Synergy & Expansion" diagram is added to visualize revenue diversification. It concludes with a practical implementation roadmap. This enriched structure provides both a high-level overview and detailed, actionable insights, increasing its value as a strategic document. -->
+    <!-- Visualization & Content Choices: 1. Hub-and-Spoke Diagram: Maintained as the core visual, clarifying the central role of the municipality. 2. Pillar Detail Cards: Each of the four business areas is now a rich card detailing Target Users, Regional Benefits, and Revenue Streams with icons for scannability. 3. Synergy Map: A new HTML/CSS diagram visually connects the pillars to new, diversified revenue streams (e.g., consulting), making the expansion strategy tangible. 4. Implementation Roadmap: A simple, 3-phase timeline graphic (HTML/CSS) provides a clear, actionable path forward. 5. Horizontal Bar Chart: Replaced with a more impactful Doughnut chart showing the potential revenue mix, which is more aligned with a business proposal. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
+        }
+        .infographic-section {
+            padding: 4rem 1.5rem;
+        }
+        .pillar-card {
+            border-radius: 1rem;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-top: 8px solid;
+        }
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .chart-container {
+            position: relative;
+            height: 350px;
+            width: 100%;
+            max-width: 350px;
+            margin: auto;
+        }
+        .flow-line {
+            width: 2px;
+            background-color: #D1D5DB;
+            position: relative;
+        }
+        .flow-dot {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            border: 4px solid #F9FAFB;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white text-center py-12 px-4">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight">自治体中心型・移動プラットフォーム事業</h1>
+        <p class="mt-4 text-lg md:text-xl opacity-90 max-w-3xl mx-auto">地域の「ハブ」となる自治体から、多様な事業を展開。一台の車が、課題解決と新たな価値を繋ぎます。</p>
+    </header>
+
+    <main>
+        <!-- Central Hub Diagram -->
+        <section class="infographic-section bg-gray-100">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">事業の全体像：自治体から広がる価値の輪</h2>
+                
+                <div class="relative flex justify-center items-center mb-8">
+                    <div class="bg-blue-600 text-white p-8 rounded-full shadow-2xl z-10 border-4 border-white">
+                        <p class="text-6xl">🏢</p>
+                        <h3 class="text-2xl font-bold mt-2">自治体</h3>
+                        <p class="text-sm opacity-90">(事業の中心)</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center my-4">
+                     <p class="text-gray-500">これを繋ぐのが...</p>
+                </div>
+                <div class="flex justify-center items-center mb-12">
+                    <div class="bg-white p-4 rounded-full shadow-lg border-2 border-gray-200">
+                        <p class="text-5xl">🚗</p>
+                    </div>
+                    <h3 class="ml-4 text-2xl font-bold text-gray-700">移動型プラットフォーム</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="pillar-card border-gray-500">
+                        <h4 class="font-bold text-xl text-gray-700">市民協働</h4>
+                        <p class="text-sm text-gray-500 mb-4">(守りの事業)</p>
+                        <p class="text-5xl mb-4">👥</p>
+                        <div class="text-xs text-left space-y-2">
+                            <p><span class="font-bold text-blue-600">自治体 →</span> 業務委託・補助金</p>
+                            <p><span class="font-bold text-gray-600">← プラットフォーム</span> 課題解決・住民サービス</p>
+                        </div>
+                    </div>
+                    <div class="pillar-card border-green-500">
+                        <h4 class="font-bold text-xl text-green-700">産業支援</h4>
+                        <p class="text-sm text-gray-500 mb-4">(攻めの事業)</p>
+                        <p class="text-5xl mb-4">💼</p>
+                        <div class="text-xs text-left space-y-2">
+                            <p><span class="font-bold text-blue-600">自治体 →</span> 企業紹介・連携要請</p>
+                            <p><span class="font-bold text-green-600">← プラットフォーム</span> マッチング手数料・委託費</p>
+                        </div>
+                    </div>
+                    <div class="pillar-card border-purple-500">
+                        <h4 class="font-bold text-xl text-purple-700">文化・観光振興</h4>
+                        <p class="text-sm text-gray-500 mb-4">(攻めの事業)</p>
+                        <p class="text-5xl mb-4">🎨</p>
+                        <div class="text-xs text-left space-y-2">
+                            <p><span class="font-bold text-blue-600">自治体 →</span> 地域資源の提供・後援</p>
+                            <p><span class="font-bold text-purple-600">← プラットフォーム</span> オークション手数料・参加費</p>
+                        </div>
+                    </div>
+                    <div class="pillar-card border-orange-500">
+                        <h4 class="font-bold text-xl text-orange-700">介護・福祉連携</h4>
+                        <p class="text-sm text-gray-500 mb-4">(攻めの事業)</p>
+                        <p class="text-5xl mb-4">👵</p>
+                        <div class="text-xs text-left space-y-2">
+                            <p><span class="font-bold text-blue-600">自治体 →</span> 施設連携・広報協力</p>
+                            <p><span class="font-bold text-orange-600">← プラットフォーム</span> ケアサービス料・提携契約料</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Services Section -->
+        <section class="infographic-section bg-white">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">4つの事業領域が生み出す価値</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    
+                    <div class="bg-gray-50 p-6 rounded-2xl shadow-inner">
+                        <h3 class="text-2xl font-bold text-green-700 mb-6 border-b-4 border-green-300 pb-3">C. 産業支援「デマンド・エキスパート」</h3>
+                        <div class="space-y-4">
+                            <p>中小企業の「今だけ専門家が欲しい」に応え、都市部の技術者を派遣。DX化や商品開発を支援します。人材募集には<strong class="text-green-800">「クラウドワークス」</strong>等と連携し、迅速なマッチングを実現します。</p>
+                            <div class="text-sm bg-green-100 p-4 rounded-lg">
+                                <p><strong class="text-green-800">対象者:</strong> 専門スキルを持つプロフェッショナル</p>
+                                <p><strong class="text-green-800">地域への便益:</strong> 企業の競争力強化、新産業の創出</p>
+                                <p><strong class="text-green-800">収益源:</strong> マッチング手数料、業務委託費</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-2xl shadow-inner">
+                        <h3 class="text-2xl font-bold text-purple-700 mb-6 border-b-4 border-purple-300 pb-3">D. 文化・観光振興「クリエイターズ・ジャーニー」</h3>
+                        <div class="space-y-4">
+                            <p>アーティストを地域の絶景へ案内し、創作活動を支援。作品はオンラインオークションで販売し、地域に収益と注目をもたらします。活動はSNSで発信し、地域のブランド価値を高めます。</p>
+                            <div class="text-sm bg-purple-100 p-4 rounded-lg">
+                                <p><strong class="text-purple-800">対象者:</strong> アーティスト、写真家、映像作家</p>
+                                <p><strong class="text-purple-800">地域への便益:</strong> ブランド価値向上、新たな観光資源の発掘</p>
+                                <p><strong class="text-purple-800">収益源:</strong> オークション手数料、参加費、企業スポンサーシップ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-2xl shadow-inner">
+                        <h3 class="text-2xl font-bold text-orange-700 mb-6 border-b-4 border-orange-300 pb-3">E. 介護・福祉連携「タイムトラベラー」</h3>
+                        <div class="space-y-4">
+                            <p>認知症の高齢者と思い出の地を巡る「回想法」ドライブ。家族に感動的な体験を提供し、介護施設のケアプログラム開発にも貢献。自治体の先進的な取り組みとしてPR効果も絶大です。</p>
+                            <div class="text-sm bg-orange-100 p-4 rounded-lg">
+                                <p><strong class="text-orange-800">対象者:</strong> 認知症の高齢者と家族</p>
+                                <p><strong class="text-orange-800">地域への便益:</strong> ケアの質向上、先進的な取り組みPR、介護士への訴求</p>
+                                <p><strong class="text-orange-800">収益源:</strong> ケアサービス料、介護施設との提携契約料</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-2xl shadow-inner">
+                        <h3 class="text-2xl font-bold text-gray-700 mb-6 border-b-4 border-gray-300 pb-3">A/B. 市民協働（基盤事業）</h3>
+                        <div class="space-y-4">
+                            <p>インフラのパトロールや、移動式ソーシャルクラブの運営など、市民の参加を促し、地域の安全とコミュニティの繋がりを守ります。これが全ての発展事業の信頼の土台となります。</p>
+                            <div class="text-sm bg-gray-200 p-4 rounded-lg">
+                                <p><strong class="text-gray-800">対象者:</strong> 地域住民、ボランティア</p>
+                                <p><strong class="text-gray-800">地域への便益:</strong> 安全性の向上、コミュニティ活性化</p>
+                                <p><strong class="text-gray-800">収益源:</strong> 自治体からの業務委託費、補助金</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Revenue & Expansion Section -->
+        <section class="infographic-section bg-gray-100">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">収益の多角化と拡大戦略</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-6">事業間シナジーによる収益拡大</h3>
+                        <p class="mb-6 text-gray-600">各事業は独立しているだけでなく、相互に連携することで新たな収益機会を生み出します。</p>
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <div class="bg-green-500 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">C</div>
+                                <p class="flex-1 text-sm">「産業支援」で派遣した専門家が継続契約に至った際の<strong class="text-green-700">紹介料</strong></p>
+                            </div>
+                            <div class="flex">
+                                <div class="bg-purple-500 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">D</div>
+                                <p class="flex-1 text-sm">「文化振興」で生まれたアートや話題性を活用した<strong class="text-purple-700">PRイベントの企画・運営受託</strong></p>
+                            </div>
+                            <div class="flex">
+                                <div class="bg-orange-500 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">E</div>
+                                <p class="flex-1 text-sm">「介護連携」で生まれた感動ストーリーをコンテンツ化し、<strong class="text-orange-700">企業研修や広告素材として販売</strong></p>
+                            </div>
+                            <div class="flex">
+                                <div class="bg-blue-500 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">→</div>
+                                <p class="flex-1 text-sm">全ての活動で得た信頼と発信力を元に、<strong class="text-blue-700">SNS運用代行や広報コンサル事業</strong>へ展開</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">収益構成ポテンシャル（一例）</h3>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Roadmap Section -->
+        <section class="infographic-section bg-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">事業導入へのロードマップ</h2>
+                <div class="flex flex-col md:flex-row justify-between text-left space-y-8 md:space-y-0 md:space-x-8">
+                    <!-- Phase 1 -->
+                    <div class="flex-1">
+                        <div class="flex items-center mb-3">
+                            <div class="flow-dot bg-blue-600"></div>
+                            <h4 class="ml-4 text-xl font-bold text-blue-800">Phase 1: 基盤構築</h4>
+                        </div>
+                        <div class="ml-3 pl-7 border-l-2 border-gray-200">
+                            <p class="text-sm text-gray-600">自治体との連携体制を構築し、「市民協働」事業で地域との信頼関係を築きます。（目安：3〜6ヶ月）</p>
+                        </div>
+                    </div>
+                    <!-- Phase 2 -->
+                    <div class="flex-1">
+                        <div class="flex items-center mb-3">
+                            <div class="flow-dot bg-green-600"></div>
+                            <h4 class="ml-4 text-xl font-bold text-green-800">Phase 2: 発展事業の展開</h4>
+                        </div>
+                        <div class="ml-3 pl-7 border-l-2 border-gray-200">
+                            <p class="text-sm text-gray-600">「産業支援」「文化・観光振興」など、収益性の高い「攻めの事業」を順次開始します。（目安：6〜12ヶ月）</p>
+                        </div>
+                    </div>
+                    <!-- Phase 3 -->
+                    <div class="flex-1">
+                        <div class="flex items-center mb-3">
+                            <div class="flow-dot bg-purple-600"></div>
+                            <h4 class="ml-4 text-xl font-bold text-purple-800">Phase 3: 自走と多角化</h4>
+                        </div>
+                        <div class="ml-3 pl-7 border-l-2 border-gray-200">
+                            <p class="text-sm text-gray-600">各事業のシナジーを活かし、広報コンサル等の新規事業を立ち上げ、自走できる収益構造を確立します。（目安：12ヶ月〜）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-12 px-4 bg-gray-800 text-white">
+            <h2 class="text-2xl font-bold">事業を始める前に</h2>
+             <div class="mt-4 bg-blue-900 border-l-4 border-blue-400 text-blue-100 p-4 rounded-md text-left max-w-2xl mx-auto">
+                <p class="font-bold">【最重要】法務確認について</p>
+                <p class="text-sm mt-1">本事業は乗客から運賃を収受しないため、二種免許は原則不要ですが、契約内容が運送対価と見なされるリスクを避けるため、<strong class="font-bold">必ず事業開始前に運輸支局・自治体・法務専門家と綿密なすり合わせを行ってください。</strong></p>
+            </div>
+            <p class="mt-8">持続可能な地域活性化の実現へ、共に一歩を踏み出しませんか？</p>
+            <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-transform hover:scale-105">お問い合わせ</button>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['産業支援', '文化・観光', '介護・福祉', '市民協働(委託費)'],
+                    datasets: [{
+                        label: '収益構成ポテンシャル',
+                        data: [40, 25, 20, 15],
+                        backgroundColor: [
+                            '#16A34A', // Green
+                            '#9333EA', // Purple
+                            '#F97316', // Orange
+                            '#6B7280'  // Gray
+                        ],
+                        borderColor: '#F9FAFB',
+                        borderWidth: 4,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
